@@ -32,8 +32,8 @@ pipeline {
                     expression {
                         params.testtag
                     }
-                 echo " deploying the application" 
                 }
+                 echo " deploying the application" 
                 
             }
         }
