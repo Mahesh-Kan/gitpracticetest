@@ -4,6 +4,10 @@ pipeline {
     MK_NAME = "temp"
     CRED = credentials("mkpipeline")
     }
+    parameters {
+        choice(name: 'version',choices:['1.1.0','1.2.0','1.3.0'],description:'version selection')
+        booleanParam(name:'testtag',defaultValue:True, description:'booleanparameters')
+    }
     stages {
         stage('build') {
             steps {
@@ -24,8 +28,13 @@ pipeline {
         }
         stage('deploy') {
             steps {
-                echo " deploying the application"
-                echo "credential = ${CRED}"
+                when {
+                    expression {
+                        params.testtag
+                    }
+                 echo " deploying the application" 
+                }
+                
             }
         }
     }
