@@ -27,12 +27,12 @@ pipeline {
             }
         }
         stage('deploy') {
-            steps {
                 when {
                     expression {
                         params.testtag
                     }
                 }
+            steps {
                  echo " deploying the application" 
                 
             }
