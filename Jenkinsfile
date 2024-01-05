@@ -2,6 +2,7 @@ pipeline {
     agent any
     environment {
     MK_NAME = "temp"
+    CRED = credentials("mkpipeline")
     }
     stages {
         stage('build') {
@@ -24,6 +25,7 @@ pipeline {
         stage('deploy') {
             steps {
                 echo " deploying the application"
+                echo "credential = ${CRED}"
             }
         }
     }
