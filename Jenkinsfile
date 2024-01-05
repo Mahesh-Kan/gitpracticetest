@@ -1,6 +1,8 @@
 pipeline {
     agent any
+    environment {
     MK_NAME = "temp"
+    }
     stages {
         stage('build') {
             steps {
