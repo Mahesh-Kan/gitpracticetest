@@ -7,13 +7,13 @@ pipeline {
         stage('build') {
             steps {
                 echo " building the application"
-                echo "name of file={MK_NAME}"
+                echo "name of file=${MK_NAME}"
             }
         }
         stage('test') {
             when {
                     expression{
-                    BRANCH_NAME =='dev'
+                    BRANCH_NAME =='dev-branch1'
                     }
             }
             steps {
