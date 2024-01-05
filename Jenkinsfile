@@ -19,8 +19,9 @@ pipeline {
         }
         stage('build') {
             steps {
-                echo " building the application"
-                echo "name of file=${MK_NAME}"
+               script {
+                   gv.buildApp()
+               }
             }
         }
         stage('test') {
@@ -30,7 +31,9 @@ pipeline {
                     }
             }
             steps {
-                echo " testing the application"
+                 script {
+                   gv.testApp()
+               }
                 
             }
         }
@@ -41,7 +44,10 @@ pipeline {
                     }
                 }
             steps {
-                 echo " deploying the application" 
+                 script {
+                   gv.deployApp()
+               }
+               
                 
             }
         }
