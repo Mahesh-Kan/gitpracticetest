@@ -6,7 +6,7 @@ pipeline {
     }
     parameters {
         choice(name: 'version',choices:['1.1.0','1.2.0','1.3.0'],description:'version selection')
-        booleanParam(name:'testtag',defaultValue:True, description:'booleanparameters')
+        booleanParam(name:'testtag',defaultValue:true, description:'booleanparameters')
     }
     stages {
         stage('build') {
